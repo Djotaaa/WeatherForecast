@@ -12,12 +12,12 @@ namespace WeatherForecast.Service
             _httpClient = httpClient;
         }
 
-        public async Task<OpenWeatherAPIDTO> GetWeatherInfo(string city, string language)
+        public async Task<OpenWeatherAPIDTO> GetWeatherInfo(string city)
         {
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri($"https://open-weather13.p.rapidapi.com/city/{city}/{language}"),
+                RequestUri = new Uri($"https://open-weather13.p.rapidapi.com/city/{city}/EN"),
                 Headers =
                 {
                     { "x-rapidapi-key", "f35b1d445bmsh4c70565cfaa3c0cp1883b6jsn753f75bb224b" },
