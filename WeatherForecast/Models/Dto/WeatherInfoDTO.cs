@@ -2,6 +2,6 @@
 {
     public class WeatherInfoDTO
     {
-        public string description { get; set; }
+        public string main { get; set; }
     }
 }

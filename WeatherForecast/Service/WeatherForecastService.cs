@@ -1,10 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System.Text.Json.Serialization;
 using WeatherForecast.Models.Dto;
+using WeatherForecast.Service.IService;
 
 namespace WeatherForecast.Service
 {
-    public class WeatherForecastService
+    public class WeatherForecastService : IWeatherForecastService
     {
         private readonly HttpClient _httpClient;
         public WeatherForecastService(HttpClient httpClient)
@@ -25,9 +26,12 @@ namespace WeatherForecast.Service
                 }
             };
 
-            using(var response = await _httpClient.SendAsync(request))
+            using (var response = await _httpClient.SendAsync(request))
             {
-                response.EnsureSuccessStatusCode();
+                if (!response.IsSuccessStatusCode)
+                {
+                    return null;
+                }
                 var body = await response.Content.ReadAsStringAsync();
                 var openWeatherAPIResponse = JsonConvert.DeserializeObject<OpenWeatherAPIDTO>(body);
                 return openWeatherAPIResponse;

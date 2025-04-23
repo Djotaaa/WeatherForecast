@@ -1,0 +1,22 @@
+﻿@using WeatherForecast.Models.Dto
+@model OpenWeatherAPIDTO
+@{
+    ViewData["Title"] = "WeatherForecast";
+}
+
+<div class="container align-content-center">
+    <p>@Model.wind.speed</p>
+    <b></b>
+    <p>@Model.name</p>
+    <br />
+    @foreach(var weather in Model.weather){
+        <p>@weather.main</p>
+    }
+    <br />
+    <p>@Model.main.temp</p>
+    <br />
+    <p>@Model.main.temp_min</p>
+    <br />
+    <p>@Model.main.temp_max</p>
+</div>
+

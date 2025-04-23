@@ -1,7 +1,13 @@
+using WeatherForecast.Service;
+using WeatherForecast.Service.IService;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IWeatherForecastService, WeatherForecastService>();
+builder.Services.AddHttpClient<IWeatherForecastService, WeatherForecastService>();
 
 var app = builder.Build();
 
@@ -22,7 +28,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+    pattern: "{controller=WeatherForecast}/{action=Index}/{id?}")
     .WithStaticAssets();
 
 
