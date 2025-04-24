@@ -28,15 +28,12 @@ namespace WeatherForecast.Service
 
             using (var response = await _httpClient.SendAsync(request))
             {
-                if (!response.IsSuccessStatusCode)
-                {
-                    return null;
-                }
+                response.EnsureSuccessStatusCode();
                 var body = await response.Content.ReadAsStringAsync();
                 var openWeatherAPIResponse = JsonConvert.DeserializeObject<OpenWeatherAPIDTO>(body);
                 return openWeatherAPIResponse;
             }
         }
-            
+
     }
 }

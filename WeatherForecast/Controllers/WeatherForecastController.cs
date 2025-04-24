@@ -40,7 +40,7 @@ namespace WeatherForecast.Controllers
         public async Task<IActionResult> ShowForecastPage(string city)
         {
             var response = await _weatherService.GetWeatherInfo(city);
-            if(response != null)
+            if (response != null)
             {
                 var model = new OpenWeatherAPIDTO
                 {
