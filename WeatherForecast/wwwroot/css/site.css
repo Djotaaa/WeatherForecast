@@ -20,6 +20,7 @@ html {
 body {
   margin-bottom: 60px;
   background-image: url('/images/image.png');
+  
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
@@ -36,11 +37,63 @@ body {
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    color:yellow;
+    color: #003366;
     height: 80vh;
 }
 
 .container.text-center a {
     width: auto;
     align-self: center;
+}
+
+strong {
+    text-transform: uppercase;
+    text-shadow: 0 0 5px white;
+    font-family: "Playwrite AU SA", cursive;
+}
+
+.glavniDeo {
+    padding: 8% 0.5% 8% 0.5%;
+    border-radius: 50%;
+    
+}
+
+    .glavniDeo:hover {
+        backdrop-filter: blur(4px);
+    }
+
+    .glavniDeo h4 {
+        font-family: Georgia;
+        text-shadow: 0 0 5px white;
+    }
+
+.btn {
+    padding: 15px 32px;
+    color: white;
+    background-color: #c99700;
+    cursor: pointer;
+    display: inline-block;
+}
+    .btn:hover {
+        color: white;
+        background-color: #c99700;
+    }
+
+.naslovi {
+    font-family: Georgia;
+    font-weight: bold;
+    text-shadow: 0 0 5px white;
+}
+
+.errorPoruke {
+    background-color: white;
+    color: #003366;
+    border: 4px solid #003366;
+    padding: 8px 8px;
+    font-weight: bold;
+    font-family: Georgia;
+}
+
+.errorPoruke:empty {
+    display:none;
 }

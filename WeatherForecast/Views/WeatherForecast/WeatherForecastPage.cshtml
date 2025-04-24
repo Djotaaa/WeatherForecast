@@ -5,13 +5,12 @@
 }
 
 <div class="container text-center">
-    <h1>Unesite ime grada</h1>
+    <h1 class="naslovi">Unesite ime grada</h1>
     <form asp-action="WeatherForecastPage">
         <br />
-        <input asp-for="City" />
-        <br />
-        <span asp-validation-for="City" class="text-danger"></span>
+        <input asp-for="City" class="form-control w-50 mx-auto"/><br />
+        <span asp-validation-for="City" class="errorPoruke"></span>
         <br /><br />
-        <input type="submit" class="btn btn-info text-white" />
+        <input type="submit" class="btn" />
     </form>
 </div>
