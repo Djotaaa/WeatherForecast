@@ -28,6 +28,17 @@ namespace WeatherForecast.Service
 
             using (var response = await _httpClient.SendAsync(request))
             {
+                if(response.StatusCode == System.Net.HttpStatusCode.TooManyRequests)
+                {
+                    return new OpenWeatherAPIDTO
+                    {
+                        name = null,
+                        main = null,
+                        weather = null,
+                        wind = null,
+                        WarningMessage = "Too Many requests for API. Try again later!"
+                    };
+                }
                 response.EnsureSuccessStatusCode();
                 var body = await response.Content.ReadAsStringAsync();
                 var openWeatherAPIResponse = JsonConvert.DeserializeObject<OpenWeatherAPIDTO>(body);

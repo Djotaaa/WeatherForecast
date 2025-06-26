@@ -6,26 +6,31 @@
 
 <div class="container text-start">
     
-    @if (Model.name != null && Model.weather != null && Model.main != null && Model.wind != null)
+    @if (Model.name != null && Model.weather != null && Model.main != null && Model.wind != null && Model.WarningMessage == null)
     {
         <br />
-        <p><b>City:</b> @Model.name</p>
+        <p><i class="bi bi-building"></i> <b>City:</b> @Model.name</p>
         <br />
         @foreach (var weather in Model.weather)
         {
-            <p><b>Weather description:</b> @weather.main</p>
+            <p><i class="bi bi-cloud-sun"></i> <b>Weather description:</b> @weather.main</p>
         }
         <br />
-        <p><b>Temperature:</b> @(Math.Round((Model.main.temp - 32) * 5.0 / 9.0, 1)) °C</p>
+        <p><i class="bi bi-thermometer-half"></i> <b>Temperature:</b> @(Math.Round((Model.main.temp - 32) * 5.0 / 9.0, 1)) °C</p>
         <br />
-        <p><b>Minimum temperature:</b> @(Math.Round((Model.main.temp_min - 32) * 5.0 / 9.0, 1)) °C</p>
-        <p><b>Maximum temperature:</b> @(Math.Round((Model.main.temp_max - 32) * 5.0 / 9.0, 1)) °C</p>
+        <p><i class="bi bi-thermometer-low"></i> <b>Minimum temperature:</b> @(Math.Round((Model.main.temp_min - 32) * 5.0 / 9.0, 1)) °C</p>
+        <p><i class="bi bi-thermometer-high"></i> <b>Maximum temperature:</b> @(Math.Round((Model.main.temp_max - 32) * 5.0 / 9.0, 1)) °C</p>
         <br />
-        <p><b>Wind speed:</b> @Model.wind.speed m/s</p>
-    } else {
-        <p><b>Unfortunately, we are currently unable to provide data for the requested location.</b></p>
-        <a asp-action="WeatherForecastPage" asp-controller="WeatherForecast Controller" class="btnshw">Back to Weather Forecast</a>
+        <p><i class="bi bi-wind"></i> <b>Wind speed:</b> @Model.wind.speed m/s</p>
+    } else if (Model.WarningMessage != null){
+        <p><b>@Model.WarningMessage</b></p>
     }
-    
+    else {
+        <p><b>Unfortunately, we are currently unable to provide data for the requested location.</b></p>
+    }
+    <br />
+    <div class="text-center">
+    <a asp-action="WeatherForecastPage" asp-controller="WeatherForecast" class="btn w-50">Back to Weather Forecast</a>
+    </div>
 </div>
 
