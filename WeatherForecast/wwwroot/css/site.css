@@ -55,6 +55,7 @@ strong {
 .glavniDeo {
     padding: 8% 0.5% 8% 0.5%;
     border-radius: 50%;
+    transition: backdrop-filter 2s ease-out;
     
 }
 
@@ -70,13 +71,22 @@ strong {
 .btn {
     padding: 15px 32px;
     color: white;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    font-size: 1.3em;
     background-color: #c99700;
     cursor: pointer;
     display: inline-block;
+    border: 3px solid;
+    border-image: linear-gradient(to right, lightblue, yellow, gold) 1;
 }
-    .btn:hover {
+    .btn:hover,
+    .btn:active,
+    .btn:focus {
         color: white;
         background-color: #c99700;
+        transform: scale(1.2);
+        border-image: linear-gradient(to left, lightblue, yellow, gold) 1;
     }
 
 .naslovi {
@@ -97,3 +107,41 @@ strong {
 .errorPoruke:empty {
     display:none;
 }
+
+.container.text-start {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-top: 5em;
+    padding: 2em 2em 2em 4em;
+    border: 10px solid;
+    border-image: linear-gradient(to right, lightblue, lightblue, yellow, gold) 1;
+    border-radius: 0.5em
+}
+
+
+    .container.text-start p {
+        font-size: 1.5em;
+        font-family: Georgia;
+        color: #003366
+    }
+
+.btnshw {
+    padding: 15px 32px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    font-size: 1.3em;
+    background-color: #c99700;
+    cursor: pointer;
+    display: inline-block;
+    border: 3px solid;
+    border-image: linear-gradient(to right, lightblue, yellow, gold) 1;
+}
+
+    .btnshw:active,
+    .btnshw:focus {
+        color: white;
+        background-color: #c99700;
+        border-image: linear-gradient(to left, lightblue, yellow, gold) 1;
+    }

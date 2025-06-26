@@ -18,7 +18,7 @@ namespace WeatherForecast.Service
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri($"https://open-weather13.p.rapidapi.com/city/{city}/EN"),
+                RequestUri = new Uri($"https://open-weather13.p.rapidapi.com/city?city={city}&lang=EN&units=Metric"),
                 Headers =
                 {
                     { "x-rapidapi-key", "f35b1d445bmsh4c70565cfaa3c0cp1883b6jsn753f75bb224b" },
@@ -31,9 +31,9 @@ namespace WeatherForecast.Service
                 response.EnsureSuccessStatusCode();
                 var body = await response.Content.ReadAsStringAsync();
                 var openWeatherAPIResponse = JsonConvert.DeserializeObject<OpenWeatherAPIDTO>(body);
+               
                 return openWeatherAPIResponse;
             }
         }
-
     }
 }
