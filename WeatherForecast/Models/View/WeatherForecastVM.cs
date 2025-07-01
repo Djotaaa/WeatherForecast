@@ -4,8 +4,8 @@ namespace WeatherForecast.Models.View
 {
     public class WeatherForecastVM
     {
-        [Required(ErrorMessage = "Morate uneti ime grada kako bismo vam poslali informacije!")]
-        [RegularExpression("^[a-zA-ZšđčćžŠĐČĆŽ ]+$", ErrorMessage = "Niste uneli ime pravilno!")]
+        [Required(ErrorMessage = "You must enter the name of the city so we can send you the information!")]
+        [RegularExpression("^[a-zA-ZšđčćžŠĐČĆŽ ]+$", ErrorMessage = "You did not enter the name correctly!")]
         public string City { get; set; }
     }
 }

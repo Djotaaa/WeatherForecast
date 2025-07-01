@@ -21,7 +21,7 @@ namespace WeatherForecast.Service
                 RequestUri = new Uri($"https://open-weather13.p.rapidapi.com/city?city={city}&lang=EN&units=Metric"),
                 Headers =
                 {
-                    { "x-rapidapi-key", "f35b1d445bmsh4c70565cfaa3c0cp1883b6jsn753f75bb224b" },
+                    { "x-rapidapi-key", "---ENTER YOU RAPID API KEY HERE---" },
                     { "x-rapidapi-host", "open-weather13.p.rapidapi.com" },
                 }
             };
