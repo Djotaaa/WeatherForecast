@@ -19,6 +19,7 @@
 - C# / ASP.NET Core MVC
 - Razor Pages
 - Bootstrap & Bootstrap Icons
+- CSS (custom styles)
 - RapidAPI (OpenWeather API)
 
 ---
